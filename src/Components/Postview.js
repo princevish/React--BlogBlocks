@@ -42,20 +42,24 @@ export default function Postview() {
           {post && post.body}
         </p>
       </div>
-      {postcomment &&
-        postcomment.map((item) => {
-          return (
-            <div className="xl:w-1/3 md:w-1/2 p-4" key={item.id}>
-              <div className="border border-gray-200 p-6 rounded-lg">
-                <h2 className="text-lg text-gray-900 font-medium title-font mb-2">
-                  {item.name}
-                </h2>
-                <span className="leading-relaxed text-base">{item.email}</span>
-                <p className="leading-relaxed text-base">{item.body}</p>
+      <div class="flex flex-wrap -m-4">
+        {postcomment &&
+          postcomment.map((item) => {
+            return (
+              <div className="xl:w-1/3 md:w-1/2 p-4" key={item.id}>
+                <div className="border border-gray-200 p-6 rounded-lg">
+                  <h2 className="text-lg text-gray-900 font-medium title-font mb-2">
+                    {item.name}
+                  </h2>
+                  <span className="leading-relaxed text-base">
+                    {item.email}
+                  </span>
+                  <p className="leading-relaxed text-base">{item.body}</p>
+                </div>
               </div>
-            </div>
-          );
-        })}
+            );
+          })}
+      </div>
     </div>
   );
 }
