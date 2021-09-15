@@ -28,7 +28,6 @@ function App() {
             <Route path="/" exact>
               <Post post={posts} />
             </Route>
-
             <Route path="/:id" component={Postview} />
           </Switch>
         </section>
