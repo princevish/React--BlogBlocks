@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-export default function Navbar() {
+
+const Navbar = () => {
   return (
     <header className="text-gray-600 body-font">
       <div className="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
@@ -22,7 +23,17 @@ export default function Navbar() {
           </svg>
           <span className="ml-3 text-xl">BlogBlocks</span>
         </Link>
+        <nav className="md:ml-auto flex flex-wrap items-center text-base justify-center">
+          <Link to="/" className="mr-5 hover:text-gray-900">
+            Post
+          </Link>
+          <Link to="/add-post" className="mr-5 hover:text-gray-900">
+            Add Post
+          </Link>
+        </nav>
       </div>
     </header>
   );
-}
+};
+
+export default Navbar;

@@ -1,39 +1,27 @@
-import React, { useState, useEffect } from "react";
-import Post from "./Components/Post";
-import Navbar from "./Components/Navbar";
-import Postview from "./Components/Postview";
+import React from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
-function App() {
-  const [posts, setPosts] = useState();
-  const data = async () => {
-    try {
-      const fetchdata = await fetch(
-        "https://jsonplaceholder.typicode.com/posts"
-      );
-      const values = await fetchdata.json();
-      setPosts(values);
-    } catch (e) {
-      console.error(e);
-    }
-  };
-  useEffect(() => {
-    data();
-  }, []);
+import Navbar from "./Components/Navbar";
+import Footer from "./Components/Footer";
+import Home from "./Page/Home";
+import PostView from "./Page/PostView";
+import AddPost from "./Page/AddPost";
+
+const App = () => {
   return (
     <div className="container mx-auto px-4">
       <BrowserRouter>
         <Navbar />
         <section className="text-gray-600 body-font">
           <Switch>
-            <Route path="/" exact>
-              <Post post={posts} />
-            </Route>
-            <Route path="/:id" component={Postview} />
+            <Route path="/add-post" component={AddPost} />
+            <Route path="/:id" component={PostView} />
+            <Route path="/" exact component={Home} />
           </Switch>
         </section>
+        <Footer />
       </BrowserRouter>
     </div>
   );
-}
+};
 
 export default App;
